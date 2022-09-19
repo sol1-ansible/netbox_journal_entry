@@ -1,0 +1,8 @@
+netbox_journal_entry is an Ansible module for managing Netbox objects' journal entries.
+
+It is intended to be contributed to the Netbox community to be maintained along with their other Ansible modules. See also:
+
+* https://github.com/netbox-community/ansible_modules
+* https://github.com/netbox-community/ansible_modules/discussions/588 
+
+For usage of the module, see the module documentation at plugins/modules/netbox_journal_entry.py
