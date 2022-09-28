@@ -3,6 +3,25 @@ netbox_journal_entry is an Ansible module for managing Netbox objects' journal e
 It is intended to be contributed to the Netbox community to be maintained along with their other Ansible modules. See also:
 
 * https://github.com/netbox-community/ansible_modules
-* https://github.com/netbox-community/ansible_modules/discussions/588 
+* https://github.com/netbox-community/ansible_modules/discussions/588
 
-For usage of the module, see the module documentation at plugins/modules/netbox_journal_entry.py
+Example usage:
+
+	- name: log package update in netbox
+	  sol1.netbox_journal_entry.netbox_journal_entry:
+	    netbox_url: "https://netbox.example.com"
+	    netbox_token: "abcd1234"
+	    name: "{{ inventory_hostname }}"
+	    type: "virtualization.virtualmachine"
+	    comment: "system packages updated"
+	    state: present
+
+For a complete reference, see the module documentation:
+
+	ansible-doc sol1.netbox_journal_entry.netbox_journal_entry
+
+To install, add the following to a requirements.yaml file:
+
+	- source: https://github.com/sol1-ansible/netbox_journal_entry
+	  type: git
+      version: v0.1.0
