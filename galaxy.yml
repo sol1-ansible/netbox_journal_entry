@@ -1,0 +1,10 @@
+namespace: sol1
+name: netbox_journal_entry
+version: 0.1.0
+readme: README.md
+authors:
+    - "Oliver Lowe <o@olowe.co> (https://sol1.com.au)"
+license:
+    - "MIT"
+tags:
+    - netbox
