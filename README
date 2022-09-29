@@ -24,4 +24,4 @@ To install, add the following to a requirements.yaml file:
 
 	- source: https://github.com/sol1-ansible/netbox_journal_entry
 	  type: git
-      version: v0.1.0
+	  version: v0.1.0
