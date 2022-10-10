@@ -15,13 +15,20 @@ Example usage:
 	    type: "virtualization.virtualmachine"
 	    comment: "system packages updated"
 	    state: present
+	  delegate_to: 127.0.0.1
 
 For a complete reference, see the module documentation:
 
 	ansible-doc sol1.netbox_journal_entry.netbox_journal_entry
 
-To install, add the following to a requirements.yaml file:
+To install, add the following to a requirements.yaml file and use ansible-galaxy to install it:
 
 	- source: https://github.com/sol1-ansible/netbox_journal_entry
 	  type: git
-	  version: v0.1.0
+	  version: v0.1.0	  
+	
+netbox_journal_entry requires that the python package pynetbox is installed on the host that the plugin is running on.  You can install it using PIP, eg:
+```
+pip3 install pynetbox
+```
+The delegate_to clause in the example above is so that it runs on the host that ansible is running from.  Otherwise it will run on the host that is targeted by ansible, and this host will need to have pynetbox installed on it.
