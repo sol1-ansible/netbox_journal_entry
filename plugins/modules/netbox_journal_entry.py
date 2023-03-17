@@ -80,7 +80,7 @@ object_id:
 import pynetbox
 from ansible.module_utils.basic import AnsibleModule
 
-def write_to_journal(netbox, comment, name, type="dcim.device"):
+def write_to_journal(netbox, comment, name, type="dcim.device", tags=[]):
     """
     Writes a journal entry consisting of comment for the named object
     with type type. type may be "virtualization.virtualmachine" or
@@ -100,6 +100,7 @@ def write_to_journal(netbox, comment, name, type="dcim.device"):
         assigned_object_type=type,
         assigned_object_id=obj.id,
         comments=comment,
+        tags=tags,
     )
 
 def run_module():
@@ -109,6 +110,7 @@ def run_module():
         comment=dict(type="str", required=True),
         netbox_url=dict(type="str", required=True),
         netbox_token=dict(type="str", required=True),
+        tags=dict(type="list", required=False, default=[]),
         state=dict(type="str", required=False, default="present"),
     )
 
@@ -133,6 +135,7 @@ def run_module():
             module.params["comment"],
             module.params["name"],
             module.params["type"],
+            module.params["tags"],
         )
         result["changed"] = True
         result["id"] = entry.id
